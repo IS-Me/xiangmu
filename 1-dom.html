@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>dom操作</title>
+	<script>
+		// alert(1);
+		// 文档加载完毕之后执行
+		window.onload = function(){
+			// alert(1);
+			// 获取Node的父构造函数，
+			// Node是一个构造函数
+			// 如何通过构造函数来获取父构造函数
+			/*console.log(1);
+			console.info(1);
+			console.debug(1);*/
+			console.log(Node);  //构造函数
+			console.log(Node.prototype);//原型对象
+			// 每一个对象有一个__proto__指向父构造函数的原型对象
+			console.log(Node.prototype.__proto__);  //父构造函数的原型对象
+			// 每一个原型对象中有一个constructor属性指向对应的构造函数
+			console.log('EventTarget',Node.prototype.__proto__.constructor.name);  //父构造函数
+			// EventTarget
+			console.log(EventTarget.prototype.__proto__.constructor.name);
+
+
+			function Animal(name){
+				this.name = name;
+			}
+			function Dog(name,age){
+				Animal.call(this,name);
+				this.age = age;
+			}
+			console.log(Dog.prototype.constructor);
+			Dog.prototype = new Animal();
+			Dog.prototype.constructor = Dog;
+			var dog = new Dog('xiaohei',2);
+			console.log(dog instanceof Dog);
+			// 通过dog找构造函数，找构造函数的父构造函数
+			console.log(dog.__proto__.constructor);
+			console.log(Dog.prototype.__proto__.constructor);
+			// console.log(dog);
+			console.log(Animal.prototype.__proto__.constructor);
+			console.log(Array.prototype.__proto__.constructor)
+		}
+	</script>
+</head>
+<body>
+	<button>按钮</button>
+</body>
+</html>
