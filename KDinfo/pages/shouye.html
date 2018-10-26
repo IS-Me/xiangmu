@@ -1,0 +1,276 @@
+<div id="shouye">
+	<div class="outerDiv">
+		<div class="row">
+			<div class="col-sm-3" style="position:relative">
+	  	<div class="totalDiv bg-white" style="height:70px">
+	  		<div class="iconDiv bg-green text-center" style="width:40px;height:40px;border-radius:50%;">
+	  			<i class="iconfont icon-yun" style="font-size:25px;color:white"></i>
+	  		</div>
+	  		<div class="numDiv">
+	  			<span style="font-size:20px;">99.9%</span>
+	  			<span style="display:block;font-size:10px">SEVER UPTIME</span>
+	  		</div>
+	  	</div>
+	  	<div class="totalDiv bg-white" style="
+			margin-top: 15px;height:70px">
+	  		<div class="iconDiv bg-purple text-center" style="width:40px;height:40px;border-radius:50%;">
+	  			<i class="iconfont icon-user" style="font-size:25px;color:white"></i>
+	  		</div>
+	  		<div class="numDiv">
+	  			<span style="font-size:20px;">117k</span>
+	  			<span style="display:block;font-size:10px">USERS TOTAL</span>
+	  		</div>
+	  	</div>
+	  	<div class="totalDiv bg-white" style="
+			margin-top: 15px;height:70px">
+	  		<div class="iconDiv bg-skyblue text-center" style="width:40px;height:40px;border-radius:50%;">
+	  			<i class="iconfont icon-18" style="font-size:25px;color:white"></i>
+	  		</div>
+	  		<div class="numDiv">
+	  			<span style="font-size:20px;">2,470</span>
+	  			<span style="display:block;font-size:10px">NEW DALY PHOTOS</span>
+	  		</div>
+	  	</div>
+	  </div>
+
+      <div class="col-sm-6 bg.white" style="position:relative">
+      <div class="visDiv" style="margin-top:30px;margin-left:15px;position:absolute;z-index:999">
+      	<strong style="font-size:16px; color:lightgreen;">14.85%</strong>
+      	<small style="display:block;">More visitors</small>
+      </div>
+      	<!-- 图表容器 DOM -->
+      <div id="container1" style="height:240px;"></div>
+      </div>
+
+      <div class="col-sm-3 " style="position:relative;">
+      	<div class="uptimeDiv" style="margin-top:5px;margin-left:5px;position:absolute;z-index:999">
+      	<strong style="font-size:14px; color:purple;">95.8%</strong>
+      	<span style="display:block; font-size:10px;">CURRENT SEVER UPTIME</span>
+        </div>
+        <div id="container2" style="height:110px;"></div>
+      	<div class="salesDiv" style="margin-top:30px;margin-left:10px;position:absolute;z-index:999">
+      	<strong style="font-size:14px; color:lightgreen;">320,45</strong>
+      	<small style="display:block;font-size:10px;">AVG.OF SALES</small>
+        </div>
+      	<!-- 图表容器 DOM -->
+        <div id="container3" style="height:110px;margin-top:20px;" class="bg-white"></div>
+	</div>
+
+
+	<div class="content3">
+	<div class="col-sm-6">
+		<img src="./images/6.png" alt="">
+	</div>
+	<div class="col-sm-6">
+		<div class="B bg-white">
+			<img src="./images/7.png" alt="">
+		</div>
+		<div class="C bg-white" style="height:80px;margin-top:20px;">
+			<img src="./images/8.png" alt="">
+		</div>
+	</div>
+	</div>
+	</div>
+</div>
+
+<script>
+	$(function(){
+		drawVis();
+		drawUptime();
+		drawSales();
+		function drawSales(){
+			var chart = Highcharts.chart('container3', {
+				credits:{
+					enabled:false,
+				},
+				chart: {
+					margin : [0, 0 , 0, 60],
+					spacing:[20,0,20,0]
+				},
+				title: {
+					floating:true,
+					text: ''
+				},
+				tooltip: {
+					pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+				},
+				plotOptions: {
+					pie: {
+						allowPointSelect: true,
+						cursor: 'pointer',
+						dataLabels: {
+							enabled: false,
+						},
+					}
+				},
+				series: [{
+					type: 'pie',
+					innerSize: '50%',
+					name: 'Sales',
+					data: [
+						['Firefox',45.0],
+						['IE',26.8],
+						['Chrome',12.8],
+						['Safari',8.5],
+						['Opera',6.2],
+						['其他',0.7]
+					]
+				}]
+			});
+		}
+		function drawUptime(){
+      	var chart = Highcharts.chart('container2', {
+	chart: {
+		type: 'column'
+	},
+	colors:['purple'],
+	credits:{
+		enabled:false,
+	},
+	title: {
+		text: ''
+	},
+	subtitle: {
+		text: ''
+	},
+	xAxis: {
+		visible:false,
+		type: 'category',
+		labels: {
+			rotation: -45  // 设置轴标签旋转角度
+		}
+	},
+	yAxis: {
+		visible:false,
+		min: 0,
+		title: {
+			text: '人口 (百万)'
+		}
+	},
+	legend: {
+		enabled: false
+	},
+	tooltip: {
+		pointFormat: '人口总量: <b>{point.y:.1f} 百万</b>',
+		enabled: false,
+	},
+	series: [{
+		name: '总人口',
+		data: [
+			['深圳', 5.46],
+			['雅加达', 10.07],
+			['伊斯坦布尔', 11.16],
+			['德里', 12.78],
+			['北京', 10.51],
+			['东京', 8.51],
+			['广州', 6.08],
+			['孟买', 5.44],
+			['莫斯科', 4.19],
+		],
+	}]
+});
+		}
+		function drawVis(){
+        var chart = Highcharts.chart('container1', {
+	chart:{
+		margin:[0,0,0,0],
+	},
+	credits:{
+		enabled:false,
+	},
+	colors:['lightgreen','#ccc'],
+	title: {
+		text: ''
+	},
+	xAxis: {
+		visible:false,
+	},
+	yAxis: {
+		visible:false,
+		title: {
+			text: ''
+		}
+	},
+	legend: {
+		layout: 'vertical',
+		align: 'right',
+		verticalAlign: 'top',
+		float:true
+	},
+	plotOptions: {
+		series: {
+			label: {
+				connectorAllowed: false
+			},
+			pointStart: 2010
+		}
+	},
+	series: [{
+		name: 'Pageviews',
+		data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
+	}, {
+		name: 'Visitors',
+		data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
+	}],
+});
+		}
+	});
+</script>
+<style>
+	    .bg-white{
+			background-color: white;
+		}
+		.bg-skyblue{
+			background-color: skyblue;
+		}
+		.bg-purple{
+			background-color: purple;
+		}
+		.bg-green{
+			background-color: #66bb0d;
+		}
+		.outerDiv{
+			width:95%;
+			margin:0 auto;
+			margin-top: 10px;
+		}
+		.totalDiv{
+			overflow: hidden;
+			padding: 10px;
+		}
+		.totalDiv .iconDiv,.totaliv .numDiv{
+			float:left;
+		}
+		.totalDiv .numDiv{
+			position: absolute;
+			margin-left: 55px;
+			margin-top:8px;
+		}
+		.totalDiv .iconDiv{
+			position: absolute;
+			margin-top:6px;
+		}
+		.content3{
+			margin-top: 260px;
+			position: relative;
+		}
+		#result {
+	        text-align: right;
+	        color: gray;
+	        min-height: 2em;
+        }
+        #table-sparkline {
+	        margin: 0 auto;
+	        border-collapse: collapse;
+        }
+        th {
+	        font-weight: lighter;
+	        font-size:10px;
+	        margin-left: 10px;
+        }
+        td, th {
+	        padding: 5px;
+	        height: 50px;
+            /*width:500px;*/
+        }
+</style>

@@ -1,0 +1,73 @@
+        .content1{
+	    	width:1001px;
+	    	height:631px;
+	    	background-color: #f0f0f0;
+	    	margin:0 auto;
+	    }
+		.KDtop{
+			height:38px;
+
+		}
+		.KDtitle1{
+			width:180px;
+			height:38px;
+			background-color:#3d556d;
+			color:white;
+		}
+		.KDtitle2{
+			width:821px;
+			height:38px;
+            margin-top: -38px;
+			background-color:white;
+			float:right;
+			border-right:1px solid  #f0f0f0;
+		}
+		.KDtitle2 span{
+			padding-top: 10px;
+			padding-left: 20px;
+		}
+		.KDtop .KDtitle2::after {
+			content: "";
+			display: block;
+			clear: both;
+		}
+		.KDbody{
+			width:180px;
+			height:594px;
+			background-color:#282830;
+			color:white;
+		}
+		ul{ 
+			padding-left:20px;
+			padding-top:40px;
+		}
+		ul li{
+            padding-top:10px;
+			list-style:none;
+			border-bottom: .2px solid #404043;
+		}
+		.content2{
+	        width:821px;
+	    	height:592px;
+	    	margin-top: -592px;
+	    	margin-left: 180px;
+            float: left;
+            padding:10px;
+            overflow: auto;
+        }
+        .KDbody{
+        	cursor: pointer;
+        }
+/*首页*/
+/*栏目管理*/
+/*资讯管理*/
+/*用户管理*/
+
+
+
+
+
+
+
+
+
